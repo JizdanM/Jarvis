@@ -1,33 +1,28 @@
 import pvporcupine
 
-import VoskModels
+import STT
+import TTS
 
-
+"""
+    Potential large changes in the project:
+    Potential names for change/inspiration: Nova, Corvus, Vega | Nyx, Echo, Iris
+"""
 
 def main():
     """
-        Runs the Jarvis speech recognition system.
+        Runs Nova's speech recognition system.
         Initializes the speech recognizer and starts listening for commands. (Continuous | Single-shot)
     """
-    print("Jarvis speech recognition")
-    print("Choose recognition mode:")
-    print("1. Continuous listening")
-    print("2. Single-shot recognition")
-    
-    while True:
-        choice = input("Enter your choice (1 or 2): ").strip()
-        if choice in ['1', '2']:
-            break
-        print("Invalid choice. Please enter 1 or 2.")
+    debug = 0 # 0 for continuous listening, 1 for single-shot recognition
 
-    speech_recognizer = VoskModels.MultilingualVosk('en')
+    speech_recognizer = STT.SpeechCapture()
 
     try:
-        if choice == '1':
+        if debug == 0:
             print("\n--- Continuous Listening Mode ---")
             for recognized_text in speech_recognizer.listen_continuous():
                 print(f"You said: '{recognized_text}'")
-                
+
                 if recognized_text.lower() in ['exit', 'quit', 'stop']:
                     print("Stopping...")
                     break

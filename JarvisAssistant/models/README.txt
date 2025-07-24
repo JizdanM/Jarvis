@@ -1,1 +1,0 @@
-This is the directory meant for storage of vosk language models.

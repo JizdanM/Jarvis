@@ -1,0 +1,1 @@
+This is the directory meant for storage of vosk and other language/AI models.
